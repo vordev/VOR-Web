@@ -1,7 +1,4 @@
 import axios from 'axios';
-import Config from 'config';
-import web3client from './web3client';
-import coingecko from './coingecko';
 
 const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaXNzIjoiZGV4dG9vbHMuaW8iLCJzdWIiOiJhbnlvbmUiLCJyZWYiOiI1MC43LjE1OS4zNCIsImlhdCI6MTU5OTQ5MjEzMH0.VKcBB6v3pspBu4QMzQIk5nV5MGZHoAKDG4Hhkv5dC1E';
 const API_URL = 'https://www.dextools.io/api';
