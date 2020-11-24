@@ -1,0 +1,53 @@
+.btn {
+  &-header {
+    background: $green !important;
+    color: $dark-gray !important;
+    font-family: Verdana !important;
+    padding: 10px 20px !important;
+    font-weight: bold !important;
+    border-radius: 0px !important;
+    border-width: 0px !important;
+    width: 100% !important;
+  }
+
+  &-round {
+    background: $green !important;
+    color: $dark-gray !important;
+    border-radius: 100px !important;
+    font-family: Verdana !important;
+    padding: 10px 20px !important;
+    font-weight: bold !important;
+  }
+
+  &-rect {
+    border: 3px solid $green !important;
+    background: $dark-gray !important;
+    color: $white !important;
+    font-family: Verdana !important;
+    font-weight: bold !important;
+    padding: 10px 20px !important;
+    min-width: 200px !important;
+
+    &.small {
+      min-width: 35px !important;
+      height: 35px !important;
+      padding: 0px !important;
+    }
+  }
+}
+
+.MuiButton-label {
+  font-family: Verdana !important;
+}
+
+.MuiIconButton-root.Mui-disabled {
+  opacity: 0.25;
+}
+
+.MuiIconButton-root {
+  padding: 0px !important;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
