@@ -77,11 +77,15 @@
   }
 
   &-black {
-    color: $black;
+    color: $dark-gray;
   }
 
   &-green {
     color: $green;
+  }
+
+  &-gray {
+    color: $gray;
   }
 
   &-center {

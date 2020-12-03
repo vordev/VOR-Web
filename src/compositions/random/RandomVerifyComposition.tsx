@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 
-import { Container, ConnectWalletButton, Footer, Hero, Header } from 'components';
+import { Container, ConnectWalletButton, Footer, Header } from 'components';
 import { RootState } from 'types';
 import { selectAccount } from 'store/account/accountSelector';
 
@@ -17,27 +17,24 @@ interface OwnProps {}
 
 type Props = StateFromProps & DispatchFromProps & OwnProps & RouteComponentProps;
 
-export const HomeComposition = ({ account, history }: Props) => {
+export const RandomVerifyComposition = ({ account, history }: Props) => {
   return (
     <React.Fragment>
       <ConnectWalletButton />
       <Header />
-      <div className='body mt-100 mb-50'>
+      <div className='random-verify__layout'>
         <Container>
-          <div className='text-title text-black mb-30'>
-            We are ready to help you
+          <div className='center-h mt-50 mb-5'>
+            <input type='text' className='input-text' />
           </div>
-          <div className='text-small text-gray text-center'>
-            We have a global community and being always ready to help you.
-          </div>
-          <div className='center-h mt-30 mb-5'>
+          <div className='text-small text-center mt-10'>Paste Hash Here To Verify</div>
+          <div className='center-h mt-30 mb-30'>
             <Button className='btn-round'>
-              Get Support
+              Verify Random Number
             </Button>
           </div>
         </Container>
       </div>
-      <Hero />
       <Footer />
     </React.Fragment>
   )
@@ -58,4 +55,4 @@ function mapDispatchToProps(dispatch: Dispatch): DispatchFromProps {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withRouter(HomeComposition))
+)(withRouter(RandomVerifyComposition))

@@ -1,0 +1,8 @@
+.random {
+  &-verify {
+    &__layout {
+      background: linear-gradient(180deg, $dark-gray 0%, $dark-gray 100%);
+      padding: 50px 0px;
+    }
+  }
+}
