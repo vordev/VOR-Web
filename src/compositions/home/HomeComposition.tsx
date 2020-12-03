@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Button, Card, CardContent } from '@material-ui/core';
-import { ArrowForward, Casino } from '@material-ui/icons';
+import { ArrowForward, Casino, PanTool } from '@material-ui/icons';
 
 import { Container, ConnectWalletButton, Footer, Hero, Header } from 'components';
 import { RootState } from 'types';
@@ -34,9 +34,9 @@ export const HomeComposition = ({ account, history }: Props) => {
               You can start building the smart contracts with our Developer docs.
             </div>
             <div className='center-h mt-30'>
-              <Card className='card'>
+              <Card className='card mr-30'>
                 <CardContent>
-                  <div className='center-v text-small text-black mb-30'><Casino /> &nbsp;&nbsp;Verifiable Randomness</div>
+                  <div className='center-v text-small text-black mb-30'><Casino /> &nbsp;&nbsp;Randomness</div>
                   <div className='flex-space mb-10'>
                     <div className='text-tiny text-gray'>Overview</div>
                     <ArrowForward className='text-tiny text-gray' />
@@ -51,6 +51,20 @@ export const HomeComposition = ({ account, history }: Props) => {
                   </div>
                   <div className='flex-space mb-10'>
                     <div className='text-tiny text-gray'>Testnet Contracts</div>
+                    <ArrowForward className='text-tiny text-gray' />
+                  </div>
+                  <br/>
+                </CardContent>
+              </Card>
+              <Card className='card'>
+                <CardContent>
+                  <div className='center-v text-small text-black mb-30'><PanTool /> &nbsp;&nbsp;Faucet</div>
+                  <div className='flex-space mb-10'>
+                    <div className='text-tiny text-gray'>About VOR Faucet</div>
+                    <ArrowForward className='text-tiny text-gray' />
+                  </div>
+                  <div className='flex-space mb-10'>
+                    <div className='text-tiny text-gray'>Get Kovan VOR</div>
                     <ArrowForward className='text-tiny text-gray' />
                   </div>
                   <br/>

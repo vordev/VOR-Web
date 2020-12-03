@@ -23,6 +23,7 @@ const Hero: React.FC = () => {
             <div className='text-small mb-20'>VOR</div>
             <div className='text-small text-gray mb-10'>Blog</div>
             <div className='text-small text-gray mb-10'>FAQs</div>
+            <div className='text-small text-gray mb-10'>Get Kovan VOR</div>
             <div className='text-small text-gray mb-10'>Verify Random Proof</div>
           </div>
           <div>
