@@ -27,7 +27,7 @@ export const HomeComposition = ({ account, history }: Props) => {
         <Container>
           <div>
             <div className='text-title text-black mb-20'>
-              Start building with Developer docs.
+              Start building with Developer docs
             </div>
             <div className='text-small text-gray text-center'>
               VOR supports On-Chain verifiable randomness generation.<br/>
