@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from 'components';
-import { Button } from '@material-ui/core';
 
 const Hero: React.FC = () => {
   return (
