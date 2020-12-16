@@ -5,7 +5,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Button, Card, CardContent } from '@material-ui/core';
 import { ArrowForward, Casino, PanTool } from '@material-ui/icons';
 
-import { Container, ConnectWalletButton, Footer, Hero, Header } from 'components';
+import { Container, Footer, Hero, Header } from 'components';
 import { RootState } from 'types';
 import { selectAccount } from 'store/account/accountSelector';
 
@@ -21,7 +21,6 @@ type Props = StateFromProps & DispatchFromProps & OwnProps & RouteComponentProps
 export const HomeComposition = ({ account, history }: Props) => {
   return (
     <React.Fragment>
-      <ConnectWalletButton />
       <Header />
       <div className='body mt-100 mb-50'>
         <Container>
@@ -60,11 +59,11 @@ export const HomeComposition = ({ account, history }: Props) => {
                 <CardContent>
                   <div className='center-v text-small text-black mb-30'><PanTool /> &nbsp;&nbsp;Faucet</div>
                   <div className='flex-space mb-10'>
-                    <div className='text-tiny text-gray'>About VOR Faucet</div>
+                    <Button className='btn-text' href='#'><div className='text-tiny text-gray'>About VOR Faucet</div></Button>
                     <ArrowForward className='text-tiny text-gray' />
                   </div>
                   <div className='flex-space mb-10'>
-                    <div className='text-tiny text-gray'>Get Kovan VOR</div>
+                    <Button className='btn-text' href='/vor/faucet'><div className='text-tiny text-gray'>Get Ropsten VOR</div></Button>
                     <ArrowForward className='text-tiny text-gray' />
                   </div>
                   <br/>

@@ -24,7 +24,7 @@ const Header: React.FC<Props> = () => {
           You are required to hold Kovan ETH to pay gas + 1 Kovan VOR to pay for the request.
         </div>
         <div className='center-h mt-50'>
-          <Button className='btn-round'>
+          <Button className='btn-round' href='https://docs.vor.live'>
             Getting Started
           </Button>
         </div>

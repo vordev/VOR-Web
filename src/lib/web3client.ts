@@ -109,6 +109,7 @@ export default {
   get5Drip,
   // Utils
   promisify,
+  precision,
   // Contracts
   wethTokenContract,
   tokenContract,
