@@ -8,19 +8,9 @@ if (typeof web3 !== 'undefined') {
   web3 = new Web3(new Web3.providers.HttpProvider(Config.provider));
 }
 
-const orchestratorContract: any = getContract(Config.Orchestrator.abi, Config.Orchestrator.address);
-const policyContract: any = getContract(Config.Policy.abi, Config.Policy.address);
-
 const wethTokenContract: any = getContract(Config.WethToken.abi, Config.WethToken.address);
-
-const pool1Contract: any = getContract(Config.Pool1.abi, Config.Pool1.address);
-const pool2Contract: any = getContract(Config.Pool2.abi, Config.Pool2.address);
-const pool3Contract: any = getContract(Config.Pool3.abi, Config.Pool3.address);
-const pool4Contract: any = getContract(Config.Pool4.abi, Config.Pool4.address);
-const pool5Contract: any = getContract(Config.Pool5.abi, Config.Pool5.address);
-const pool6Contract: any = getContract(Config.Pool6.abi, Config.Pool6.address);
-const pool7Contract: any = getContract(Config.Pool7.abi, Config.Pool7.address);
-const pool8Contract: any = getContract(Config.Pool8.abi, Config.Pool8.address);
+const tokenContract: any = getContract(Config.Token.abi, Config.Token.address);
+const faucetContract: any = getContract(Config.Faucet.abi, Config.Faucet.address);
 
 /**
  * Common Contract Functions
@@ -46,17 +36,6 @@ async function getTotalSupply(contract: any,): Promise<number> {
   return parseInt(result);
 }
 
-async function rebase(from: string) {
-  await orchestratorContract.methods.rebase().send({ from, gas: 600000 })
-    .on('error', function(error: any, receipt: any) {
-      console.log(error, receipt);
-    });
-}
-
-async function getLastRebaseTimestamp() {
-  const result = await policyContract.methods.lastRebaseTimestampSec().call();
-  return parseInt(result);
-}
 
 function promisify(fn: (cb: any) => any): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -84,43 +63,6 @@ async function allowance(contract: any, owner: string, spender: string) {
 }
 
 /**
- * Orchestrator Contract Functions
- */
-async function boostUp(from: string) {
-  const boostRate = await orchestratorContract.methods.boost().call();
-  await orchestratorContract.methods.boostUp().send({
-    from,
-    gas: 120000,
-    value: boostRate * Math.pow(10, 17)
-  })
-    .on('error', function(error: any, receipt: any) {
-      console.log(error, receipt);
-    });
-}
-
-async function boostDown(from: string) {
-  const boostRate = await orchestratorContract.methods.boost().call();
-  await orchestratorContract.methods.boostDown().send({
-    from,
-    gas: 120000,
-    value: boostRate * Math.pow(10, 17)
-  })
-    .on('error', function(error: any, receipt: any) {
-      console.log(error, receipt);
-    });
-}
-
-async function getBoostRate(): Promise<number> {
-  const result = await orchestratorContract.methods.boost().call();
-  return parseInt(result);
-}
-
-async function getRebaseLag(): Promise<number> {
-  const result = await policyContract.methods.getRebaseLag().call();
-  return parseInt(result);
-}
-
-/**
  * StakingRewards Pool Contract Functions
  */
 function precision(a: number) {
@@ -129,54 +71,29 @@ function precision(a: number) {
   while (Math.round(a * e) / e !== a) { e *= 10; p++; }
   return p;
 }
-async function poolStake(contract: any, amount: number, tokenDecimals: number, from: string) {
-  const precision_ = precision(amount);
-  const amount_ = Web3.utils.toBN(amount * 10 ** precision_);
-  const pow_ = Web3.utils.toBN(10 ** (tokenDecimals - precision_));
-  await contract.methods.stake(amount_.mul(pow_)).send({ from, gas: 200000 })
+
+/**
+ * Faucet Contract Functions
+ */
+async function get1Drip(from: string) {
+  await faucetContract.methods.drip1Token().send({ from })
     .on('error', function(error: any, receipt: any) {
       console.log(error, receipt);
     });
 }
 
-async function poolWithdraw(contract: any, amount: number, tokenDecimals: number, from: string) {
-  const precision_ = precision(amount);
-  const amount_ = Web3.utils.toBN(amount * 10 ** precision_);
-  const pow_ = Web3.utils.toBN(10 ** (tokenDecimals - precision_));
-  await contract.methods.withdraw(amount_.mul(pow_)).send({ from, gas: 200000 })
+async function get2Drip(from: string) {
+  await faucetContract.methods.drip1Token().send({ from })
     .on('error', function(error: any, receipt: any) {
       console.log(error, receipt);
     });
 }
 
-async function poolHarvest(contract: any, from: string) {
-  await contract.methods.getReward().send({ from, gas: 200000 })
+async function get5Drip(from: string) {
+  await faucetContract.methods.drip1Token().send({ from })
     .on('error', function(error: any, receipt: any) {
       console.log(error, receipt);
     });
-}
-
-async function poolExit(contract: any, from: string) {
-  const stakedAmount = await getBalance(contract, from);
-  await contract.methods.withdraw(stakedAmount).send({ from, gas: 200000 })
-    .on('error', function(error: any, receipt: any) {
-      console.log(error, receipt);
-    });
-}
-
-async function poolGetEarned(contract: any, address: string): Promise<number> {
-  const result = await contract.methods.earned(address).call();
-  return result;
-}
-
-async function poolGetPeriodFinish(contract: any): Promise<Date> {
-  const periodFinish = await contract.methods.periodFinish().call();
-  return new Date(parseInt(periodFinish) * 1000);
-}
-
-async function poolGetRewardRate(contract: any): Promise<number> {
-  const result = await contract.methods.rewardPerToken().call();
-  return result;
 }
 
 export default {
@@ -184,35 +101,16 @@ export default {
   getAccount,
   getBalance,
   getTotalSupply,
-  rebase,
-  getLastRebaseTimestamp,
   allowance,
   approve,
-  // Orchestrator methods
-  boostUp,
-  boostDown,
-  getBoostRate,
-  getRebaseLag,
-  // Yield farming pool
-  poolStake,
-  poolWithdraw,
-  poolHarvest,
-  poolExit,
-  poolGetEarned,
-  poolGetPeriodFinish,
-  poolGetRewardRate,
+  // Faucet
+  get1Drip,
+  get2Drip,
+  get5Drip,
   // Utils
   promisify,
   // Contracts
-  orchestratorContract,
-  policyContract,
   wethTokenContract,
-  pool1Contract,
-  pool2Contract,
-  pool3Contract,
-  pool4Contract,
-  pool5Contract,
-  pool6Contract,
-  pool7Contract,
-  pool8Contract,
+  tokenContract,
+  faucetContract,
 };

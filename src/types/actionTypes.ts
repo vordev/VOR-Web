@@ -18,6 +18,7 @@ enum BasicType {
 enum AccountType {
     LOAD_ACCOUNT = 'LOAD_ACCOUNT',
     SET_ACCOUNT = 'SET_ACCOUNT',
+    GET_FAUCET = 'GET_FAUCET',  
 }
 enum TokenType {
     TOKEN_SET_TOTAL_SUPPLY = 'TOKEN_SET_TOTAL_SUPPLY',

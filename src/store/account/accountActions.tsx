@@ -14,3 +14,10 @@ export const setAccount = (
         payload,
     };
 };
+
+export const getFaucet = (payload: number) => {
+    return {
+        type: ActionType.GET_FAUCET,
+        payload,
+    };
+};

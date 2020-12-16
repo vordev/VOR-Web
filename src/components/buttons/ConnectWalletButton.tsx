@@ -21,7 +21,7 @@ const ConnectWalletButton: React.FC<Props> = ({ loadAccount }: Props) => {
 
   return !isMobile ? (
     <div>
-      <Button className='btn-header'>
+      <Button className='btn-header' onClick={() => loadAccount()}>
         Connect Your Wallet
       </Button>
     </div>
