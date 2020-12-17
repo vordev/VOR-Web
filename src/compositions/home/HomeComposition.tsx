@@ -5,7 +5,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Button, Card, CardContent } from '@material-ui/core';
 import { ArrowForward, Casino, PanTool } from '@material-ui/icons';
 
-import { Container, Footer, Hero, Header } from 'components';
+import { Container, Footer, Header } from 'components';
 import { RootState } from 'types';
 import { selectAccount } from 'store/account/accountSelector';
 
@@ -59,7 +59,7 @@ export const HomeComposition = ({ account, history }: Props) => {
                 <CardContent>
                   <div className='center-v text-small text-black mb-30'><PanTool /> &nbsp;&nbsp;Faucet</div>
                   <div className='flex-space mb-10'>
-                    <Button className='btn-text' href='#'><div className='text-tiny text-gray'>About VOR Faucet</div></Button>
+                    <Button className='btn-text' href='/vor/faucet'><div className='text-tiny text-gray'>About VOR Faucet</div></Button>
                     <ArrowForward className='text-tiny text-gray' />
                   </div>
                   <div className='flex-space mb-10'>
@@ -79,14 +79,13 @@ export const HomeComposition = ({ account, history }: Props) => {
               We have a global community and being always ready to help you.
             </div>
             <div className='center-h mt-30 mb-5'>
-              <Button className='btn-round'>
+              <Button className='btn-round' href='mailto:vrftech@protonmail.com'>
                 Get Support
               </Button>
             </div>
           </div>
         </Container>
       </div>
-      <Hero />
       <Footer />
     </React.Fragment>
   )

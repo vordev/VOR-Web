@@ -20,8 +20,8 @@ const Header: React.FC<Props> = () => {
           Blockchain Powered Random Number Generator
         </div>
         <div className='text-small text-center'>
-          VOR operates on the Kovan Test Network.<br/>
-          You are required to hold Kovan ETH to pay gas + 1 Kovan VOR to pay for the request.
+          VOR operates on the Ropsten Test Network.<br/>
+          You are required to hold Ropsten ETH to pay gas + 1 Ropsten VOR to pay for the request.
         </div>
         <div className='center-h mt-50'>
           <Button className='btn-round' href='https://docs.vor.live'>
