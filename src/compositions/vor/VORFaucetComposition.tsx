@@ -39,7 +39,7 @@ export const VORFaucetComposition = ({ getFaucet, account }: Props) => {
 
   return (
     <React.Fragment>
-      {account && account.address ? <ConnectWalletButton /> : null}
+      {account && account.address ? null : <ConnectWalletButton />}
       <Header />
       <div className='random-faucet__layout'>
         <Container>
