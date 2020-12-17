@@ -202,4 +202,23 @@
       }
     }
   }
+
+  &-cards {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    @media screen and (max-width: $tablet) {
+      display: block;
+    }
+
+    &__rand {
+      margin-right: 30px !important;
+
+      @media screen and (max-width: $tablet) {
+        margin-right: 0px !important;
+        margin-bottom: 30px !important;
+      }
+    }
+  }
 }

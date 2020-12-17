@@ -32,8 +32,8 @@ export const HomeComposition = ({ account, history }: Props) => {
               VOR supports On-Chain verifiable randomness generation.<br/>
               You can start building the smart contracts with our Developer docs.
             </div>
-            <div className='center-h mt-30'>
-              <Card className='card mr-30'>
+            <div className='home-cards'>
+              <Card className='card home-cards__rand'>
                 <CardContent>
                   <div className='center-v text-small text-black mb-30'><Casino /> &nbsp;&nbsp;Randomness</div>
                   <div className='flex-space mb-10'>

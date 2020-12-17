@@ -14,7 +14,7 @@ const Header: React.FC<Props> = () => {
     <div className='header'>
       <Container>
         <div className='center-h mt-50 mb-50'>
-          <img src={LogoImage} alt='Logo' />
+          <img src={LogoImage} alt='Logo' style={{ maxWidth: '100%' }} />
         </div>
         <div className='text-title mb-10'>
           Blockchain Powered Random Number Generator
