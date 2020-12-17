@@ -57,6 +57,11 @@ export const VORFaucetComposition = ({ getFaucet, account }: Props) => {
               Send me Test VOR
             </Button>
           </div>
+          <div className='center-h mt-50 mb-30'>
+            <Button className='btn-round' href='/'>
+              Go to the Home
+            </Button>
+          </div>
         </Container>
       </div>
       <Footer />
