@@ -37,19 +37,19 @@ export const HomeComposition = ({ account, history }: Props) => {
                 <CardContent>
                   <div className='center-v text-small text-black mb-30'><Casino /> &nbsp;&nbsp;Randomness</div>
                   <div className='flex-space mb-10'>
-                    <div className='text-tiny text-gray'>Overview</div>
+                    <Button className='btn-text' href='https://docs.vor.live'><div className='text-tiny text-gray'>Overview</div></Button>
                     <ArrowForward className='text-tiny text-gray' />
                   </div>
                   <div className='flex-space mb-10'>
-                    <div className='text-tiny text-gray'>Get a Random Number</div>
+                    <Button className='btn-text' href='https://docs.vor.live/guide'><div className='text-tiny text-gray'>Get a Random Number</div></Button>
                     <ArrowForward className='text-tiny text-gray' />
                   </div>
                   <div className='flex-space mb-10'>
-                    <div className='text-tiny text-gray'>Verify Randomness Proof</div>
+                    <Button className='btn-text' href='https://docs.vor.live/guide/#on-chain-verification-of-randomness'><div className='text-tiny text-gray'>Verify Randomness Proof</div></Button>
                     <ArrowForward className='text-tiny text-gray' />
                   </div>
                   <div className='flex-space mb-10'>
-                    <div className='text-tiny text-gray'>Testnet Contracts</div>
+                    <Button className='btn-text' href='https://docs.vor.live/guide/address.html#ropsten'><div className='text-tiny text-gray'>Testnet Contracts</div></Button>
                     <ArrowForward className='text-tiny text-gray' />
                   </div>
                   <br/>
