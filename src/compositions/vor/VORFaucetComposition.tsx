@@ -46,9 +46,9 @@ export const VORFaucetComposition = ({ getFaucet, account }: Props) => {
           <div className='center-h mb-20'>
             <FormControl component='fieldset'>
               <RadioGroup aria-label='options' name='faucet' value={option} onChange={handleOptionChange}>
-                <FormControlLabel className='mb-10' value={FaucetOption.OneToken} control={<Radio />} label="Get 1 VOR with a minumum time limit of 1 hour" />
-                <FormControlLabel className='mb-10' value={FaucetOption.TwoToken} control={<Radio />} label="Get 2 VOR with a minumum time limit of 2 hours" />
-                <FormControlLabel className='mb-10' value={FaucetOption.FiveToken} control={<Radio />} label="Get 5 VOR with a minumum time limit of 5 hours" />
+                <FormControlLabel className='mb-10' value={FaucetOption.OneToken} control={<Radio />} label="Get 1 VOR every hour" />
+                <FormControlLabel className='mb-10' value={FaucetOption.TwoToken} control={<Radio />} label="Get 2 VOR every 2 hours" />
+                <FormControlLabel className='mb-10' value={FaucetOption.FiveToken} control={<Radio />} label="Get 5 VOR every 5 hours" />
               </RadioGroup>
             </FormControl>
           </div>

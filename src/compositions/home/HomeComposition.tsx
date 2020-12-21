@@ -30,7 +30,7 @@ export const HomeComposition = ({ account, history }: Props) => {
             </div>
             <div className='text-small text-gray text-center'>
               VOR supports On-Chain verifiable randomness generation.<br/>
-              You can start building the smart contracts with our Developer docs.
+              Start building smart contracts with our Developer docs right now!
             </div>
             <div className='home-cards'>
               <Card className='card home-cards__rand'>
@@ -76,10 +76,10 @@ export const HomeComposition = ({ account, history }: Props) => {
               We are ready to help you
             </div>
             <div className='text-small text-gray text-center'>
-              We have a global community and being always ready to help you.
+              We are a global community working together to bring fair verified randomness to All
             </div>
             <div className='center-h mt-30 mb-5'>
-              <Button className='btn-round' href='mailto:vrftech@protonmail.com'>
+              <Button className='btn-round' href='https://t.me/verifiedonchainrandomness'>
                 Get Support
               </Button>
             </div>
